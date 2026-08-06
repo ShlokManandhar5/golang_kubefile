@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: golang-deployment
+  namespace: dev
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      resource: pod-golang
+  template:
+    metadata:
+      name: pod-golang
+      labels:
+        resource: pod-golang
+    spec:
+      containers:
+      - name: golang
+        image: shlokmndr/golang-app:0.0.1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+          requests:
+            memory: "10Mi"
+            cpu: "1m"
+        ports:
+          - containerPort: 8080

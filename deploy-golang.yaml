@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: golang
-        image: shlokmndr/golang-app:0.0.18
+        image: shlokmndr/golang-app:0.0.19
         resources:
           limits:
             memory: "128Mi"
